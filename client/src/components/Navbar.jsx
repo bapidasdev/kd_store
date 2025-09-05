@@ -8,11 +8,11 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const { user, setUser, navigate, setShowUserLogin, cartCount, searchQuery, setSearchQuery } = useContext(AppContext)
 
-  useEffect(() => {
-    if (searchQuery.length > 0) {
-      navigate("/products");
-    }
-  }, [searchQuery]);
+    useEffect(() => {
+        if (searchQuery.length > 0) {
+            navigate("/products");
+        }
+    }, [searchQuery]);
 
     return (
         <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
@@ -28,8 +28,8 @@ const Navbar = () => {
 
                 <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
                     <input
-                     onChange={(e) => setSearchQuery(e.target.value)}
-                     className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500" type="text" placeholder="Search products" />
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500" type="text" placeholder="Search products" />
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.836 10.615 15 14.695" stroke="#7A7B7D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
                         <path clip-rule="evenodd" d="M9.141 11.738c2.729-1.136 4.001-4.224 2.841-6.898S7.67.921 4.942 2.057C2.211 3.193.94 6.281 2.1 8.955s4.312 3.92 7.041 2.783" stroke="#7A7B7D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
@@ -51,11 +51,11 @@ const Navbar = () => {
                                 }} className="p-1.5 cursor-pointer">My Orders</li>
                                 {/* <li onClick={() => setUser(null)} className="p-1.5 cursor-pointer">Logout</li> */}
                                 <li
-                                onClick={()=>{
-                                    setUser(null)
-                                    navigate("/")
-                                }}
-                                 className="p-1.5 cursor-pointer">Logout</li>
+                                    onClick={() => {
+                                        setUser(null)
+                                        navigate("/")
+                                    }}
+                                    className="p-1.5 cursor-pointer">Logout</li>
                             </ul>
                         </div>
                     </>
@@ -70,13 +70,37 @@ const Navbar = () => {
                 }
             </div>
 
-            <button onClick={() => open ? setOpen(false) : setOpen(true)} aria-label="Menu" className="sm:hidden">
-                {/* Menu Icon SVG */}
-                <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="21" height="1.5" rx=".75" fill="#426287" />
-                    <rect x="8" y="6" width="13" height="1.5" rx=".75" fill="#426287" />
-                    <rect x="6" y="13" width="15" height="1.5" rx=".75" fill="#426287" />
-                </svg>
+            <button
+                onClick={() => setOpen(!open)}
+                aria-label="Menu"
+                className="sm:hidden"
+            >
+                {open ? (
+                    // Close (X) Icon
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 text-[#426287]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                ) : (
+                    // Hamburger Icon
+                    <svg
+                        width="21"
+                        height="15"
+                        viewBox="0 0 21 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <rect width="21" height="1.5" rx=".75" fill="#426287" />
+                        <rect x="8" y="6" width="13" height="1.5" rx=".75" fill="#426287" />
+                        <rect x="6" y="13" width="15" height="1.5" rx=".75" fill="#426287" />
+                    </svg>
+                )}
             </button>
 
             {/* Mobile Menu */}
@@ -93,20 +117,20 @@ const Navbar = () => {
                                 }} className="p-1.5 cursor-pointer">My Orders</li>
                                 {/* <li onClick={() => setUser(null)} className="p-1.5 cursor-pointer">Logout</li> */}
                                 <li
-                                onClick={()=>{
-                                    setUser(null)
-                                    navigate("/")
-                                }}
-                                 className="p-1.5 cursor-pointer">Logout</li>
+                                    onClick={() => {
+                                        setUser(null)
+                                        navigate("/")
+                                    }}
+                                    className="p-1.5 cursor-pointer">Logout</li>
                             </ul>
                         </div>
                     </>
                 ) : (
                     <button
-                    onClick={() => {
-                        setShowUserLogin(true)
-                    }}
-                     className="cursor-pointer px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full">
+                        onClick={() => {
+                            setShowUserLogin(true)
+                        }}
+                        className="cursor-pointer px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full">
                         Login
                     </button>
                 )
