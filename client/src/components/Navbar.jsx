@@ -80,7 +80,7 @@ const Navbar = () => {
             </button>
 
             {/* Mobile Menu */}
-            <div className={`${open ? 'flex' : 'hidden'} absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}>
+            <div className={`${open ? 'flex' : 'hidden'} z-50 absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}>
                 <Link to={"/"}>Home</Link>
                 <Link to={"/products"}>All Products</Link>
                 {user ? (
@@ -102,7 +102,11 @@ const Navbar = () => {
                         </div>
                     </>
                 ) : (
-                    <button className="cursor-pointer px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full">
+                    <button
+                    onClick={() => {
+                        setShowUserLogin(true)
+                    }}
+                     className="cursor-pointer px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full">
                         Login
                     </button>
                 )
