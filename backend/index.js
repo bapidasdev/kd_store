@@ -29,7 +29,7 @@ app.use(cookieParser());
 
 //api
 app.get('/', (req, res) => {
-    res.send("Hello world!!")
+    res.send("Hello world!!!!!!!")
 })
 
 //store add product images
