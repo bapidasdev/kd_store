@@ -21,7 +21,7 @@ connectCloudinary()
 
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://kd-store.onrender.com/",
+    "https://kd-store-pi.vercel.app/",
 
 ];
 
