@@ -46,7 +46,7 @@ const MyOrders = () => {
                 } border-gray-300 flex flex-col md:flex-row md:items-center  justify-between p-4 py-5 w-full max-w-4xl`}>
                 <div className='flex items-center mb-4 md:mb-0'>
                   <div className="p-4 rounded-lg">
-                    <img src={`http://localhost:5000/images/${item.product.image[0]}`} alt="" className="w-16 h-16" />
+                    <img src={`https://kd-store.onrender.com/images/${item.product.image[0]}`} alt="" className="w-16 h-16" />
                   </div>
 
                   <div className="ml-4">
