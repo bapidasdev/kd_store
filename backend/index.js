@@ -19,7 +19,11 @@ const app = express();
 connectDB();
 connectCloudinary()
 
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://kd-store.onrender.com/",
+
+];
 
 //middleware
 app.use(express.json())
