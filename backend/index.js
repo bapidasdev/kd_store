@@ -19,7 +19,7 @@ const app = express();
 connectDB();
 connectCloudinary()
 
-const allowedOrigins = ["https://kd-store-kuhr.vercel.app/"];
+const allowedOrigins = ["https://kd-store-pi.vercel.app/"];
 
 //middleware
 app.use(express.json())
