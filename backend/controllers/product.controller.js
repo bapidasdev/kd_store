@@ -36,26 +36,6 @@ export const addProduct = async (req, res) => {
             message: "Product added successfully",
             success: true,
         });
-
-
-        // const image = req.files?.map((file) => `/uploads/${file.filename}`);
-
-        // const product = new Product({
-        //     name,
-        //     price,
-        //     offerPrice,
-        //     description,
-        //     category,
-        //     image,
-        // });
-
-        // const savedProduct = await product.save();
-
-        // return res.status(201).json({
-        //     success: true,
-        //     product: savedProduct,
-        //     message: "Product added successfully",
-        // });
     } catch (error) {
         res.status(500).json({ success: false, message: "Server error while adding product" });
     }
