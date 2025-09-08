@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { assets, dummyOrders } from "../../assets/assets";
 import toast from "react-hot-toast";
 import { AppContext } from "../../context/AppContext";
 
