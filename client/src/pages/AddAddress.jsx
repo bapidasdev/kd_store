@@ -103,7 +103,7 @@ const AddAddress = () => {
 
             <div className="sm:col-span-2">
               <label className="block text-gray-600 text-sm sm:text-base">
-                Street
+                Road
               </label>
               <input
                 type="text"
