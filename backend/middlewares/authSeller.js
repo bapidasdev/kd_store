@@ -2,12 +2,12 @@ import jwt from "jsonwebtoken"
 
 export const authSeller = (req, res, next) => {
     try {
-        const { tokrn } = req.cookies;
-        if (!tokrn) {
+        const { sellerToken } = req.cookies;
+        if (!sellerToken) {
             return res.status(401).json({ message: "Unauthorizes", success: false })
         }
 
-        const decoded = jwt.verify(tokrn, process.env.JWT_SECRET);
+        const decoded = jwt.verify(sellerToken, process.env.JWT_SECRET);
 
         if (decoded.email === process.env.SELLER_EMAIL) {
             next()

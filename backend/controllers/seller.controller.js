@@ -72,7 +72,7 @@ export const sellerLogin = async (req, res) => {
       const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
       // ✅ Set cookie correctly for cross-site (Vercel)
-      res.cookie("token", token, {
+      res.cookie("sellerToken", token, {
         httpOnly: true,
         secure: true,         // must be true on HTTPS
         sameSite: "none",     // required for cross-site cookies
@@ -93,7 +93,7 @@ export const sellerLogin = async (req, res) => {
 // ================== SELLER LOGOUT ==================
 export const sellerLogout = async (req, res) => {
   try {
-    res.clearCookie("token", {
+    res.clearCookie("sellerToken", {
       httpOnly: true,
       secure: true,
       sameSite: "none",
@@ -109,7 +109,7 @@ export const sellerLogout = async (req, res) => {
 // ================== CHECK AUTH SELLER ==================
 export const isAuthSeller = async (req, res) => {
   try {
-    const token = req.cookies.token;
+    const token = req.cookies.sellerToken;
 
     if (!token) {
       return res.status(401).json({ message: "Unauthorized", success: false });
