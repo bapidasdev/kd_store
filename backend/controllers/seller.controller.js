@@ -108,21 +108,32 @@ export const sellerLogout = async (req, res) => {
 
 // ================== CHECK AUTH SELLER ==================
 export const isAuthSeller = async (req, res) => {
+  // try {
+  //   const token = req.cookies.sellerToken;
+
+  //   if (!token) {
+  //     return res.status(401).json({ message: "Unauthorized", success: false });
+  //   }
+
+  //   try {
+  //     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  //     res.status(200).json({ success: true, seller: decoded });
+  //   } catch (err) {
+  //     return res.status(401).json({ message: "Invalid token", success: false });
+  //   }
+  // } catch (error) {
+  //   console.log(error);
+  //   res.status(500).json({ message: "Internal server error" });
+  // }
+
+
+
   try {
-    const token = req.cookies.sellerToken;
-
-    if (!token) {
-      return res.status(401).json({ message: "Unauthorized", success: false });
-    }
-
-    try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      res.status(200).json({ success: true, seller: decoded });
-    } catch (err) {
-      return res.status(401).json({ message: "Invalid token", success: false });
-    }
+    res.status(200).json({
+      success: true,
+    });
   } catch (error) {
-    console.log(error);
+    console.error("Error in checkAuth:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
