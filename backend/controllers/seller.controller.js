@@ -60,10 +60,6 @@
 
 
 
-
-
-
-
 import jwt from "jsonwebtoken";
 
 // ================== SELLER LOGIN ==================
@@ -113,7 +109,7 @@ export const sellerLogout = async (req, res) => {
 // ================== CHECK AUTH SELLER ==================
 export const isAuthSeller = async (req, res) => {
   try {
-    const token = req.cookies.sellerToken;
+    const token = req.cookies.token;
 
     if (!token) {
       return res.status(401).json({ message: "Unauthorized", success: false });
