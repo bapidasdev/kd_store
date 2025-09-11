@@ -20,8 +20,8 @@ connectDB();
 connectCloudinary()
 
 const allowedOrigins = [
-    "http://localhost:5173",
-    "https://kd-store-pi.vercel.app/",
+    // "http://localhost:5173",
+    "https://kd-store-pi.vercel.app",
 
 ];
 // const allowedOrigins = [
