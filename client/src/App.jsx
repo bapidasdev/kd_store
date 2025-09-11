@@ -21,8 +21,8 @@ import Orders from "./pages/seller/Orders"
 
 
 const App = () => {
-  const { isSeller, ShowUserLogin } = useContext(AppContext)
   const isSellerPath = useLocation().pathname.includes('seller')
+  const { isSeller, ShowUserLogin } = useContext(AppContext)
   return (
     <div className="text-default min-h-screen">
       {isSellerPath ? null : <Navbar />}
