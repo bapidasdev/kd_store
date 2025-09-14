@@ -68,7 +68,7 @@ const ProductCard = ({ product }) => {
             <button
               onClick={() => addToCart(product?._id)}
               className="flex items-center justify-center gap-1 w-full py-1.5 
-                         bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition"
+                         bg-primary text-white rounded-md hover:bg-indigo-600 transition"
             >
               <img src={assets.cart_icon} alt="cart icon" className="w-4 h-4" />
               Add
