@@ -48,32 +48,32 @@ const Cart = () => {
     }
   }, [products, cartItems]);
 
-  const placeOrder = async () => {
-    try {
-      if (!selectedAddress) {
-        return toast.error("Please select an address");
-      }
-      // place order with cod
-      if (paymentOption === "COD") {
-        const { data } = await axios.post("/api/order/cod", {
-          items: cartArray.map((item) => ({
-            product: item._id,
-            quantity: item.quantity,
-          })),
-          address: selectedAddress._id,
-        });
-        if (data.success) {
-          toast.success(data.message);
-          setCartItems({});
-          navigate("/my-orders");
-        } else {
-          toast.error(data.message);
-        }
-      }
-    } catch (error) {
-      toast.error(error.message);
-    }
-  };
+  // const placeOrder = async () => {
+  //   try {
+  //     if (!selectedAddress) {
+  //       return toast.error("Please select an address");
+  //     }
+  //     // place order with cod
+  //     if (paymentOption === "COD") {
+  //       const { data } = await axios.post("/api/order/cod", {
+  //         items: cartArray.map((item) => ({
+  //           product: item._id,
+  //           quantity: item.quantity,
+  //         })),
+  //         address: selectedAddress._id,
+  //       });
+  //       if (data.success) {
+  //         toast.success(data.message);
+  //         setCartItems({});
+  //         navigate("/my-orders");
+  //       } else {
+  //         toast.error(data.message);
+  //       }
+  //     }
+  //   } catch (error) {
+  //     toast.error(error.message);
+  //   }
+  // };
 
   const orderViaWhatsApp = async () => {
     try {
@@ -108,9 +108,7 @@ const Cart = () => {
         `I would like to place the following order:%0A%0A` +
         `${orderDetails}%0A%0A` +
         `Total Amount: ₹${total}%0A` +
-        `Delivery Address: ${selectedAddress ? `Name:- ${selectedAddress.firstName}, Contect No:- ${selectedAddress.phone},
-         Road:- ${selectedAddress.street}, State:- ${selectedAddress.state}, ${selectedAddress.country}` : "Not provided"}%0A` +
-        `Payment Method: ${paymentOption}`;
+        `Delivery Address:  ${selectedAddress ? `Name:- ${selectedAddress.firstName} ${selectedAddress.lastName}, Contect No:- ${selectedAddress.phone}, Road:- ${selectedAddress.street}, State:- ${selectedAddress.state}, ${selectedAddress.country}` : "Not provided"}%0A` + `Payment Method: ${paymentOption}`;
 
       window.open(`https://wa.me/918670273082?text=${message}`, "_blank");
     } catch (error) {
@@ -252,7 +250,7 @@ const Cart = () => {
             onChange={(e) => setPaymentOption(e.target.value)}
             className="w-full border border-gray-300 bg-white px-3 py-2 mt-2 outline-none">
             <option value="COD">Cash On Delivery</option>
-            <option value="Online">Online Payment</option>
+            {/* <option value="Online">Online Payment</option> */}
           </select>
         </div>
 
@@ -274,11 +272,11 @@ const Cart = () => {
         </div>
 
         {/* Normal Place Order button */}
-        <button
+        {/* <button
           onClick={placeOrder}
           className="w-full py-3 mt-6 cursor-pointer bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition">
           {paymentOption === "COD" ? "Place Order" : "Proceed to Checkout"}
-        </button>
+        </button> */}
 
         {/* WhatsApp Order button */}
         <button
