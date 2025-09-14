@@ -108,7 +108,7 @@ const Cart = () => {
         `I would like to place the following order:%0A%0A` +
         `${orderDetails}%0A%0A` +
         `Total Amount: ₹${total}%0A` +
-        `Delivery Address: ${selectedAddress ? `Contect No :-${selectedAddress.phone}, Road:-${selectedAddress.street}, ${selectedAddress.state}, ${selectedAddress.country}` : "Not provided"}%0A` +
+        `Delivery Address: ${selectedAddress ? `Contect No :-${selectedAddress.phone}, Road:-${selectedAddress.street}, Name:- ${selectedAddress.firstName} ${selectedAddress.state}, ${selectedAddress.country}` : "Not provided"}%0A` +
         `Payment Method: ${paymentOption}`;
 
       window.open(`https://wa.me/918670273082?text=${message}`, "_blank");

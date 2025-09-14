@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
                    shadow-sm w-full max-w-[280px] group"
       >
         {/* Product Image */}
-        <div className="flex items-center justify-center w-30 h-30 mb-2">
+        <div className="flex items-center justify-center w-50 h-40 mb-2">
           <img
             className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
             src={`https://kd-store.onrender.com/images/${product.image[0]}`}
